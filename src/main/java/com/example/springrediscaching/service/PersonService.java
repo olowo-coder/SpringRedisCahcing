@@ -2,13 +2,19 @@ package com.example.springrediscaching.service;
 
 
 import com.example.springrediscaching.model.Person;
+import com.example.springrediscaching.payload.PersonRequest;
+import com.example.springrediscaching.payload.PersonResponse;
+
+import java.util.List;
 
 public interface PersonService {
-    boolean savePerson(Person person);
+    PersonResponse savePerson(PersonRequest person);
 
-    List<Person> fetchAllPerson();
+    List<PersonResponse> fetchAllPerson();
 
     Person fetchUserById(Long id);
 
-    boolean deletePerson(Long id);
+    void deletePerson(Long id);
+
+    PersonResponse updatePerson(PersonRequest personRequest);
 }
