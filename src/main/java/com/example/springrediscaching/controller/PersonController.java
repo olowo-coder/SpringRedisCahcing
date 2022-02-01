@@ -27,7 +27,15 @@ public class PersonController {
 
 
     @GetMapping
+    @Cacheable(value = "persons")
     public List<PersonResponse> fetchAllPerson(){
+        log.info(">>> Person controller : /all-persons : ");
+        return personService.fetchAllPerson();
+    }
+
+    @GetMapping("/all")
+    @CachePut(value = "persons")
+    public List<PersonResponse> updateFetchAllPerson(){
         log.info(">>> Person controller : /all-persons : ");
         return personService.fetchAllPerson();
     }
